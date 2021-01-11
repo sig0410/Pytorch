@@ -35,7 +35,7 @@ class DataLoader(object):
         ],# 여기까지가 데이터를 읽어오는 것 
     ).split(split_ratio = (1 - valid_ratio))
 
-        self.train_loader, valid_loader = data.BucketIterator.splits(
+        self.train_loader, self.valid_loader = data.BucketIterator.splits(
         (train, valid),
         batch_size = batch_size,
         device = 'cuda:%d' % device if device >= 0 else 'cpu',
